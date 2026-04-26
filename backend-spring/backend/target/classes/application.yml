@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/devpulse
+    username: postgres
+    password: "9875004052"
+  jpa:
+    hibernate.ddl-auto: update
+    open-in-view: false
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: "Ov23liNGXhR7s6yKydKz"
+            client-secret: "5456832ed2df604f514f27c5cd2728c9bfce5c60"
+            scope: read:user,repo
+
+ml:
+  service:
+    url: http://localhost:8000
