@@ -29,7 +29,6 @@ public class SecurityConfig {
                         ).permitAll()
                         .anyRequest().authenticated())
                 .oauth2Login(o -> o
-                        // ✅ YOUR VERCEL URL — already correct
                         .defaultSuccessUrl("https://devpulse-hazel.vercel.app/dashboard", true)
                         .failureUrl("https://devpulse-hazel.vercel.app/?error=true")
                 );
@@ -41,7 +40,6 @@ public class SecurityConfig {
         CorsConfiguration c = new CorsConfiguration();
         c.setAllowedOrigins(List.of(
                 "http://localhost:5173",
-                // ✅ YOUR VERCEL URL — already correct
                 "https://devpulse-hazel.vercel.app"
         ));
         c.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
