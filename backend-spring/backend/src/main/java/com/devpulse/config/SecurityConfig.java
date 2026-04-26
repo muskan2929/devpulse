@@ -29,8 +29,8 @@ public class SecurityConfig {
                         ).permitAll()
                         .anyRequest().authenticated())
                 .oauth2Login(o -> o
-                        .defaultSuccessUrl("https://devpulse.vercel.app/dashboard", true)
-                        .failureUrl("https://devpulse.vercel.app/?error=true")
+                        .defaultSuccessUrl("https://devpulse-hazel.vercel.app/dashboard", true)
+                        .failureUrl("https://devpulse-hazel.vercel.app/?error=true")
                 );
         return http.build();
     }
@@ -40,7 +40,7 @@ public class SecurityConfig {
         CorsConfiguration c = new CorsConfiguration();
         c.setAllowedOrigins(List.of(
                 "http://localhost:5173",
-                "https://devpulse.vercel.app"
+                "https://devpulse-hazel.vercel.app"
         ));
         c.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         c.setAllowedHeaders(List.of("*"));
