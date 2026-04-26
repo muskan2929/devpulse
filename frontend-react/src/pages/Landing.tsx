@@ -186,7 +186,8 @@ export default function Landing() {
               <p className="text-sm mb-6" style={{ color: "#5a7a5a", fontFamily: "JetBrains Mono, monospace" }}>
                 Connect GitHub → ML analysis runs instantly → Get your personalized report
               </p>
-              <a href="/oauth2/authorization/github"
+             <a href={`${import.meta.env.VITE_API_URL?.replace("/api", "") || "http://localhost:8081"}/oauth2/authorization/github`}
+
                 className="inline-block px-8 py-4 font-bold text-sm transition-all hover:scale-105"
                 style={{
                   background: "#00ff9c",

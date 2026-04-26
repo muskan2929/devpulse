@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 
+// ✅ Your backend URL
+const BACKEND_URL = import.meta.env.VITE_API_URL?.replace("/api", "") || "http://localhost:8081";
+
 export default function TerminalHeader() {
   return (
     <header className="border-b border-terminal-border bg-terminal-panel">
@@ -13,12 +16,15 @@ export default function TerminalHeader() {
           <Link to="/dashboard" className="hover:text-terminal-green text-terminal-text">
             ./dashboard
           </Link>
+          
+          {/* ✅ FIXED: added missing <a> tag */}
           <a
-            href="/oauth2/authorization/github"
+            href={`${BACKEND_URL}/oauth2/authorization/github`}
             className="border border-terminal-green text-terminal-green px-3 py-1 hover:bg-terminal-green hover:text-terminal-bg transition"
           >
             [ login --github ]
           </a>
+
         </nav>
       </div>
     </header>
