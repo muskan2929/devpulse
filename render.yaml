@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: devpulse-ml
+    runtime: docker
+    dockerfilePath: ./ml-service-fastapi/Dockerfile
+    dockerContext: ./ml-service-fastapi
+    plan: free
+    envVars:
+      - key: PORT
+        value: 10000
