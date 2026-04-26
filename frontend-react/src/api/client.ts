@@ -1,8 +1,9 @@
 import axios from "axios";
 
-// ✅ Use relative URLs so Vite proxy handles routing to 8081
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:8081";
+
 export const api = axios.create({
-  baseURL: "/api",
+  baseURL: `${BASE_URL}/api`,
   withCredentials: true,
 });
 
