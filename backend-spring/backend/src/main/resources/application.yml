@@ -1,9 +1,8 @@
 server:
-  port: 8081
+  port: ${PORT:8081}
 
 spring:
   datasource:
-    # ✅ No secrets here — all come from environment variables
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/devpulse}
     username: ${SPRING_DATASOURCE_USERNAME:postgres}
     password: ${SPRING_DATASOURCE_PASSWORD}
@@ -15,11 +14,10 @@ spring:
       client:
         registration:
           github:
-            # ✅ No secrets here — set in IntelliJ/Render environment variables
             client-id: ${GITHUB_CLIENT_ID}
             client-secret: ${GITHUB_CLIENT_SECRET}
             scope: read:user,repo
 
 ml:
   service:
-    url: ${ML_SERVICE_URL:http://localhost:8000}_URL:http://localhost:8000}
+    url: ${ML_SERVICE_URL:http://localhost:8000}
