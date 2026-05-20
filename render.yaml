@@ -8,3 +8,25 @@ services:
     envVars:
       - key: PORT
         value: 10000
+
+  - type: web
+    name: devpulse-backend
+    runtime: docker
+    dockerfilePath: ./backend-spring/backend/Dockerfile
+    dockerContext: ./backend-spring/backend
+    plan: free
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        sync: false        # paste your Neon/Render Postgres URL in dashboard
+      - key: SPRING_DATASOURCE_USERNAME
+        sync: false
+      - key: SPRING_DATASOURCE_PASSWORD
+        sync: false
+      - key: GITHUB_CLIENT_ID
+        sync: false
+      - key: GITHUB_CLIENT_SECRET
+        sync: false
+      - key: ML_SERVICE_URL
+        value: https://devpulse-ml.onrender.com
+      - key: FRONTEND_URL
+        value: https://devpulse-hazel.vercel.app
