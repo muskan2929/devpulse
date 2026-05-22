@@ -325,7 +325,8 @@ export default function Dashboard() {
                   <p className="text-sm mb-4" style={{ color: "#5a7a5a", fontFamily: "JetBrains Mono, monospace" }}>
                     Connect GitHub to analyze YOUR real commits instead of demo data
                   </p>
-                  <a href="/oauth2/authorization/github"
+                 <a href={`${BACKEND_URL}/oauth2/authorization/github`}
+
                     className="inline-block px-6 py-3 font-bold text-sm"
                     style={{
                       background: "#00ff9c",
