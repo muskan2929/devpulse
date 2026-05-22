@@ -1,3 +1,5 @@
+const BACKEND_URL = import.meta.env.VITE_API_URL?.replace("/api", "") || "https://devpulse-backend1.onrender.com";
+
 import { useEffect, useState } from "react";
 import TerminalHeader from "../components/TerminalHeader";
 import Heatmap from "../components/Heatmap";
