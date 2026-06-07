@@ -1,14 +1,18 @@
 server:
-  port: 10000
+  port: ${PORT:10000}
+  forward-headers-strategy: framework
 
 spring:
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/devpulse}
-    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
     password: ${SPRING_DATASOURCE_PASSWORD}
+
   jpa:
-    hibernate.ddl-auto: update
+    hibernate:
+      ddl-auto: update
     open-in-view: false
+
   security:
     oauth2:
       client:
@@ -16,11 +20,16 @@ spring:
           github:
             client-id: ${GITHUB_CLIENT_ID}
             client-secret: ${GITHUB_CLIENT_SECRET}
-            scope: read:user,repo
+            scope:
+              - read:user
+              - user:email
+              - repo
+            redirect-uri: ${BACKEND_URL}/login/oauth2/code/github
 
 ml:
   service:
-    url: ${ML_SERVICE_URL:http://localhost:8000}
+    url: ${ML_SERVICE_URL}
 
 frontend:
-  url: ${FRONTEND_URL:http://localhost:5173}
+  url: ${FRONTEND_URL}
+
